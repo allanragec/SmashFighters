@@ -11,3 +11,7 @@ extension Color {
         )
     }
 }
+
+extension Color {
+    static var branding = Color(hex: 0xDB3069)
+}

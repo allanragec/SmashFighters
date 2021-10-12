@@ -10,11 +10,11 @@ struct TabBarItem: View {
     }
     
     var titleColor: Color {
-        isSelected ? Color.white : Color(hex: 0xDB3069)
+        isSelected ? Color.white : Color.branding
     }
     
     var backgroundColor: Color {
-        isSelected ? Color(hex: 0xDB3069) : Color.white
+        isSelected ? Color.branding : Color.white
     }
     
     var body: some View {
@@ -26,7 +26,7 @@ struct TabBarItem: View {
             .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color(hex: 0xDB3069), lineWidth: 1)
+                    .stroke(Color.branding, lineWidth: 1)
             )
             .padding(2)
             .onTapGesture {
