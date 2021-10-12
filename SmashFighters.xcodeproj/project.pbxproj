@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4A281C452715069A00F46641 /* IntroductionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A281C442715069A00F46641 /* IntroductionScreen.swift */; };
 		4A281C4A2715150D00F46641 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A281C492715150D00F46641 /* Color.swift */; };
+		4A6E56F127162508005B324F /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E56F027162508005B324F /* TabBarItem.swift */; };
+		4A6E56F327162BF4005B324F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E56F227162BF4005B324F /* TabBar.swift */; };
 		4A7ADCA72714FE3300610A53 /* SmashFightersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7ADCA62714FE3300610A53 /* SmashFightersApp.swift */; };
 		4A7ADCA92714FE3300610A53 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7ADCA82714FE3300610A53 /* HomeContentView.swift */; };
 		4A7ADCAB2714FE3400610A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7ADCAA2714FE3400610A53 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		4A281C442715069A00F46641 /* IntroductionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionScreen.swift; sourceTree = "<group>"; };
 		4A281C492715150D00F46641 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4A6E56F027162508005B324F /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		4A6E56F227162BF4005B324F /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		4A7ADCA32714FE3300610A53 /* SmashFighters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashFighters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7ADCA62714FE3300610A53 /* SmashFightersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashFightersApp.swift; sourceTree = "<group>"; };
 		4A7ADCA82714FE3300610A53 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4A6E56EE271624DF005B324F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E56EF271624EE005B324F /* Components */,
+				4A7ADCA82714FE3300610A53 /* HomeContentView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4A6E56EF271624EE005B324F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E56F027162508005B324F /* TabBarItem.swift */,
+				4A6E56F227162BF4005B324F /* TabBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		4A7ADC9A2714FE3300610A53 = {
 			isa = PBXGroup;
 			children = (
@@ -132,12 +154,12 @@
 		4A7ADCA52714FE3300610A53 /* SmashFighters */ = {
 			isa = PBXGroup;
 			children = (
+				4A6E56EE271624DF005B324F /* Home */,
 				4A94257C271607DD001E4111 /* PropertyWrappers */,
 				4A281C48271514FC00F46641 /* Extensions */,
 				4A281C3F271505E400F46641 /* Introduction */,
 				4A7F5B432715009500866CB7 /* Info.plist */,
 				4A7ADCA62714FE3300610A53 /* SmashFightersApp.swift */,
-				4A7ADCA82714FE3300610A53 /* HomeContentView.swift */,
 				4A7ADCAA2714FE3400610A53 /* Assets.xcassets */,
 				4A7ADCAC2714FE3400610A53 /* Preview Content */,
 				4A7F5B442715043E00866CB7 /* LaunchScreen.storyboard */,
@@ -322,6 +344,7 @@
 				4A94257227160374001E4111 /* SMSTitleIntroduction.swift in Sources */,
 				4A7ADCA92714FE3300610A53 /* HomeContentView.swift in Sources */,
 				4A94257E271607F1001E4111 /* UserDefaultPropertyWrapper.swift in Sources */,
+				4A6E56F327162BF4005B324F /* TabBar.swift in Sources */,
 				4A7ADCA72714FE3300610A53 /* SmashFightersApp.swift in Sources */,
 				4A9425742716038F001E4111 /* SMSButton.swift in Sources */,
 				4A942576271603A5001E4111 /* IntroductionBackgroundStyle.swift in Sources */,
@@ -329,6 +352,7 @@
 				4A942578271603BF001E4111 /* IntroductionView.swift in Sources */,
 				4A94257B271604F9001E4111 /* UserDefaults.swift in Sources */,
 				4A281C4A2715150D00F46641 /* Color.swift in Sources */,
+				4A6E56F127162508005B324F /* TabBarItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
