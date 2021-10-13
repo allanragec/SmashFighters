@@ -158,7 +158,7 @@ struct FilteredValues {
         case ascending = "Ascending"
         case descending = "Descending"
         case rate = "Rate"
-        case donwloads = "Downloads"
+        case downloads = "Downloads"
     }
     
     let sortOption: SortOptions

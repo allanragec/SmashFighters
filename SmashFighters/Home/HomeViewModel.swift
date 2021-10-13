@@ -85,7 +85,7 @@ class HomeViewModel: ObservableObject {
                 return fighter1.name < fighter2.name
             case .descending:
                 return fighter1.name > fighter2.name
-            case .donwloads:
+            case .downloads:
                 return fighter1.downloads > fighter1.downloads
             }
         }
