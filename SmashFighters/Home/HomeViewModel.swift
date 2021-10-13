@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject {
     
     @Published var universes: [Universe] = []
     @Published var fighters: [Fighter] = []
+    @Published var filteredFighters: [Fighter]?
     @Published var isLoadingUniverses: Bool = false
     @Published var isLoadingFighters: Bool = false
     
@@ -45,6 +46,7 @@ class HomeViewModel: ObservableObject {
         $selectedItem
             .debounce(for: .milliseconds(200), scheduler: DispatchQueue.main)
             .handleEvents(receiveOutput: { _ in
+                self.filteredFighters = nil
                 self.isLoadingFighters = true
             })
             .map { filter -> AnyPublisher<[Fighter], Error> in
@@ -67,6 +69,26 @@ class HomeViewModel: ObservableObject {
             })
             .store(in: &subscriptions)
         
+    }
+    
+    func filter(_ filter: FilteredValues) {
+        filteredFighters = fighters.filter { fighter in
+            let fighterPrice = Double(fighter.price) ?? 0
+            return (fighter.rate == filter.stars) &&
+            (fighterPrice >= filter.minimumPrice ) &&
+            (fighterPrice <= filter.maximumPrice)
+        }.sorted { fighter1, fighter2 in
+            switch filter.sortOption {
+            case .rate:
+                return fighter1.rate > fighter2.rate
+            case .ascending:
+                return fighter1.name < fighter2.name
+            case .descending:
+                return fighter1.name > fighter2.name
+            case .donwloads:
+                return fighter1.downloads > fighter1.downloads
+            }
+        }
     }
     
     private func showError(_ error: Error) {

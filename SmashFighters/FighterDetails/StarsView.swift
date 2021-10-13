@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct StarsView: View {
-    @State var stars: Int
+    @Binding var stars: Int
     
     let selectedColor: Color
     let unselectedColor: Color
     let size: StarItem.Size
     
-    
-    init(stars: Int, selectedColor: Color = Color.white, unselectedColor: Color = Color.black.opacity(0.2), size: StarItem.Size = .small) {
-        self.stars = stars
+    init(stars: Binding<Int>, selectedColor: Color = Color.white, unselectedColor: Color = Color.black.opacity(0.2), size: StarItem.Size = .small) {
+        self._stars = stars
         self.selectedColor = selectedColor
         self.unselectedColor = unselectedColor
         self.size = size
@@ -50,6 +49,6 @@ struct StarsView: View {
 
 struct StarsView_Previews: PreviewProvider {
     static var previews: some View {
-        StarsView(stars: 3)
+        StarsView(stars: Binding.constant(3))
     }
 }

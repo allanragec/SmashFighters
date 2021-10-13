@@ -34,7 +34,9 @@ struct HomeContentView: View {
                             .foregroundColor(Color.black)
                     })
                         .sheet(isPresented: $showingFilter) {
-                            FilterFighters()
+                            FilterFighters() { filter in
+                                viewModel.filter(filter)
+                            }
                         }
                 }
                 .padding(.trailing, 26)
@@ -54,7 +56,7 @@ struct HomeContentView: View {
                             count: viewModel.fighters.count
                         )
                         
-                        GridView(collection: viewModel.fighters) { fighter in
+                        GridView(collection: viewModel.filteredFighters ?? viewModel.fighters) { fighter in
                             NavigationLink(destination: FighterDetails(fighter: fighter)) {
                                 FighterItemView(fighter: fighter)
                             }

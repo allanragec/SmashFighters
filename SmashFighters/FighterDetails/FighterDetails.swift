@@ -53,7 +53,7 @@ struct FighterDetails: View {
                             .font(.custom("HelveticaNeue-Regular", size: 16))
                             .foregroundColor(Color.white)
                             .padding(.bottom, 7)
-                        StarsView(stars: fighter.rate)
+                        StarsView(stars: Binding.constant(fighter.rate))
                             .padding(.bottom, 27)
                             .allowsHitTesting(false)
                         PriceView(title: "$\(fighter.price)")
