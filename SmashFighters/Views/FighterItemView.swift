@@ -17,12 +17,12 @@ struct FighterItemView: View {
                     .padding(9)
             }
                 .frame(width: 142, height: 140)
+                .background(Color(hex: 0xFBFBFB))
                 .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color(hex: 0xEAEAEA), lineWidth: 1)
                 )
-                .background(Color(hex: 0xFBFBFB))
             Text(fighter.name.uppercased())
                 .font(.custom("HelveticaNeue-Bold", size: 10))
             Text(fighter.universe.uppercased())
@@ -42,6 +42,7 @@ struct FighterItemView_Previews: PreviewProvider {
                     universe: "Donkey Kong",
                     price: "",
                     popular: true,
+                    rate: 2,
                     downloads: "",
                     description: "",
                     createdAt: "",

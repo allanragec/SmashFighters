@@ -25,6 +25,8 @@
 		4A6E571227167DC4005B324F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E571127167DC4005B324F /* LoadingView.swift */; };
 		4A6E57142716801F005B324F /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E57132716801F005B324F /* GridView.swift */; };
 		4A6E571727168D36005B324F /* HomeDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E571627168D36005B324F /* HomeDivider.swift */; };
+		4A6E571A271690A8005B324F /* FighterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E5719271690A8005B324F /* FighterDetails.swift */; };
+		4A7020152717584C002EFD0F /* StarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7020142717584C002EFD0F /* StarItem.swift */; };
 		4A7ADCA72714FE3300610A53 /* SmashFightersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7ADCA62714FE3300610A53 /* SmashFightersApp.swift */; };
 		4A7ADCA92714FE3300610A53 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7ADCA82714FE3300610A53 /* HomeContentView.swift */; };
 		4A7ADCAB2714FE3400610A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7ADCAA2714FE3400610A53 /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 		4A942578271603BF001E4111 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A942577271603BF001E4111 /* IntroductionView.swift */; };
 		4A94257B271604F9001E4111 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94257A271604F9001E4111 /* UserDefaults.swift */; };
 		4A94257E271607F1001E4111 /* UserDefaultPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94257D271607F1001E4111 /* UserDefaultPropertyWrapper.swift */; };
+		4ACBF9962717523C00AD5254 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBF9952717523C00AD5254 /* PriceView.swift */; };
+		4ACBF998271753CD00AD5254 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBF997271753CD00AD5254 /* StarsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,8 @@
 		4A6E571127167DC4005B324F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		4A6E57132716801F005B324F /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		4A6E571627168D36005B324F /* HomeDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDivider.swift; sourceTree = "<group>"; };
+		4A6E5719271690A8005B324F /* FighterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FighterDetails.swift; sourceTree = "<group>"; };
+		4A7020142717584C002EFD0F /* StarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarItem.swift; sourceTree = "<group>"; };
 		4A7ADCA32714FE3300610A53 /* SmashFighters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashFighters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7ADCA62714FE3300610A53 /* SmashFightersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashFightersApp.swift; sourceTree = "<group>"; };
 		4A7ADCA82714FE3300610A53 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +101,8 @@
 		4A942577271603BF001E4111 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 		4A94257A271604F9001E4111 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		4A94257D271607F1001E4111 /* UserDefaultPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultPropertyWrapper.swift; sourceTree = "<group>"; };
+		4ACBF9952717523C00AD5254 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
+		4ACBF997271753CD00AD5254 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +209,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4A6E571827169093005B324F /* FighterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E5719271690A8005B324F /* FighterDetails.swift */,
+				4ACBF9952717523C00AD5254 /* PriceView.swift */,
+				4ACBF997271753CD00AD5254 /* StarsView.swift */,
+				4A7020142717584C002EFD0F /* StarItem.swift */,
+			);
+			path = FighterDetails;
+			sourceTree = "<group>";
+		};
 		4A7ADC9A2714FE3300610A53 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +243,7 @@
 		4A7ADCA52714FE3300610A53 /* SmashFighters */ = {
 			isa = PBXGroup;
 			children = (
+				4A6E571827169093005B324F /* FighterDetails */,
 				4A6E570C27167412005B324F /* Views */,
 				4A6E5707271670CB005B324F /* Repository */,
 				4A6E57012716614B005B324F /* Models */,
@@ -417,17 +437,21 @@
 			files = (
 				4A6E5709271670E2005B324F /* UniverseRepository.swift in Sources */,
 				4A6E56FE27165F42005B324F /* HomeViewModel.swift in Sources */,
+				4A6E571A271690A8005B324F /* FighterDetails.swift in Sources */,
 				4A6E571727168D36005B324F /* HomeDivider.swift in Sources */,
 				4A6E5706271670BA005B324F /* Universe.swift in Sources */,
 				4A6E56F8271649F2005B324F /* ImageLoader.swift in Sources */,
 				4A6E570B271670F1005B324F /* FighterRepository.swift in Sources */,
 				4A94257227160374001E4111 /* SMSTitleIntroduction.swift in Sources */,
+				4ACBF9962717523C00AD5254 /* PriceView.swift in Sources */,
 				4A6E56FA27164A02005B324F /* DecodableLoader.swift in Sources */,
+				4ACBF998271753CD00AD5254 /* StarsView.swift in Sources */,
 				4A6E5704271670AA005B324F /* Fighter.swift in Sources */,
 				4A7ADCA92714FE3300610A53 /* HomeContentView.swift in Sources */,
 				4A94257E271607F1001E4111 /* UserDefaultPropertyWrapper.swift in Sources */,
 				4A6E5710271678D0005B324F /* FighterItemView.swift in Sources */,
 				4A6E56F327162BF4005B324F /* TabBar.swift in Sources */,
+				4A7020152717584C002EFD0F /* StarItem.swift in Sources */,
 				4A6E570E2716741E005B324F /* ImageView.swift in Sources */,
 				4A7ADCA72714FE3300610A53 /* SmashFightersApp.swift in Sources */,
 				4A9425742716038F001E4111 /* SMSButton.swift in Sources */,

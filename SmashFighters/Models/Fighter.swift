@@ -13,6 +13,7 @@ struct Fighter: Decodable, Hashable {
     let universe: String
     let price: String
     let popular: Bool
+    let rate: Int
     let downloads: String
     let description: String
     let createdAt: String
