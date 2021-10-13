@@ -1,3 +1,10 @@
+//
+//  TabBarItem.swift
+//  SmashFighters
+//
+//  Created by Allan Melo on 12/10/21.
+//
+
 import SwiftUI
 
 struct TabBarItem: View {
@@ -20,6 +27,7 @@ struct TabBarItem: View {
     var body: some View {
         Text(title)
             .font(.custom("HelveticaNeue-Regular", size: 15))
+            .multilineTextAlignment(.center)
             .frame(width: 125, height: 39)
             .foregroundColor(titleColor)
             .background(backgroundColor)

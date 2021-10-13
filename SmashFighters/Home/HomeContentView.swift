@@ -8,14 +8,36 @@
 import SwiftUI
 
 struct HomeContentView: View {
-    var items = ["All", "Detail", "History", "Home"]
-    @State var selectedItem: String = ""
+    @ObservedObject var viewModel = HomeViewModel()
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     
     var body: some View {
         VStack {
             Text("Fighters")
                 .font(.custom("HelveticaNeue-Regular", size: 24))
-            TabBar(items: items, selectedItem: self.$selectedItem)
+            if viewModel.isLoadingUniverses {
+                LoadingView()
+            }
+            else {
+                TabBar(items: viewModel.filterItems, selectedItem: self.$viewModel.selectedItem)
+                
+                if viewModel.isLoadingFighters {
+                    LoadingView()
+                }
+                else {
+                    ScrollView {
+                        LazyVGrid(columns: columns) {
+                            ForEach(self.viewModel.fighters, id: \.self) { fighter in
+                                FighterItemView(fighter: fighter)
+                            }
+                        }
+                    }
+                }
+            }
             Spacer()
         }
     }
