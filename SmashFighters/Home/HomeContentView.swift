@@ -10,11 +10,6 @@ import SwiftUI
 struct HomeContentView: View {
     @ObservedObject var viewModel = HomeViewModel()
     
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
     var body: some View {
         VStack {
             Text("Fighters")
@@ -29,12 +24,9 @@ struct HomeContentView: View {
                     LoadingView()
                 }
                 else {
-                    ScrollView {
-                        LazyVGrid(columns: columns) {
-                            ForEach(self.viewModel.fighters, id: \.self) { fighter in
-                                FighterItemView(fighter: fighter)
-                            }
-                        }
+                    
+                    GridView(collection: viewModel.fighters) {
+                        FighterItemView(fighter: $0)
                     }
                 }
             }
