@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4A281C452715069A00F46641 /* IntroductionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A281C442715069A00F46641 /* IntroductionScreen.swift */; };
 		4A281C4A2715150D00F46641 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A281C492715150D00F46641 /* Color.swift */; };
+		4A64FB7B2717761B002F3530 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64FB7A2717761B002F3530 /* RadioButtonGroup.swift */; };
+		4A64FB7D27177672002F3530 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64FB7C27177672002F3530 /* RadioButton.swift */; };
+		4A64FB7F27177D1E002F3530 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64FB7E27177D1E002F3530 /* SliderView.swift */; };
 		4A6E56F127162508005B324F /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E56F027162508005B324F /* TabBarItem.swift */; };
 		4A6E56F327162BF4005B324F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E56F227162BF4005B324F /* TabBar.swift */; };
 		4A6E56F6271649D4005B324F /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E56F5271649D4005B324F /* DataLoader.swift */; };
@@ -27,6 +30,7 @@
 		4A6E571727168D36005B324F /* HomeDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E571627168D36005B324F /* HomeDivider.swift */; };
 		4A6E571A271690A8005B324F /* FighterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E5719271690A8005B324F /* FighterDetails.swift */; };
 		4A7020152717584C002EFD0F /* StarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7020142717584C002EFD0F /* StarItem.swift */; };
+		4A70201827175FB3002EFD0F /* FilterFighters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A70201727175FB3002EFD0F /* FilterFighters.swift */; };
 		4A7ADCA72714FE3300610A53 /* SmashFightersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7ADCA62714FE3300610A53 /* SmashFightersApp.swift */; };
 		4A7ADCA92714FE3300610A53 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7ADCA82714FE3300610A53 /* HomeContentView.swift */; };
 		4A7ADCAB2714FE3400610A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7ADCAA2714FE3400610A53 /* Assets.xcassets */; };
@@ -65,6 +69,9 @@
 /* Begin PBXFileReference section */
 		4A281C442715069A00F46641 /* IntroductionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionScreen.swift; sourceTree = "<group>"; };
 		4A281C492715150D00F46641 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4A64FB7A2717761B002F3530 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
+		4A64FB7C27177672002F3530 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		4A64FB7E27177D1E002F3530 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		4A6E56F027162508005B324F /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		4A6E56F227162BF4005B324F /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		4A6E56F5271649D4005B324F /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
@@ -83,6 +90,7 @@
 		4A6E571627168D36005B324F /* HomeDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDivider.swift; sourceTree = "<group>"; };
 		4A6E5719271690A8005B324F /* FighterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FighterDetails.swift; sourceTree = "<group>"; };
 		4A7020142717584C002EFD0F /* StarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarItem.swift; sourceTree = "<group>"; };
+		4A70201727175FB3002EFD0F /* FilterFighters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFighters.swift; sourceTree = "<group>"; };
 		4A7ADCA32714FE3300610A53 /* SmashFighters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashFighters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7ADCA62714FE3300610A53 /* SmashFightersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashFightersApp.swift; sourceTree = "<group>"; };
 		4A7ADCA82714FE3300610A53 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
@@ -205,6 +213,9 @@
 				4A6E570F271678D0005B324F /* FighterItemView.swift */,
 				4A6E571127167DC4005B324F /* LoadingView.swift */,
 				4A6E57132716801F005B324F /* GridView.swift */,
+				4A64FB7A2717761B002F3530 /* RadioButtonGroup.swift */,
+				4A64FB7C27177672002F3530 /* RadioButton.swift */,
+				4A64FB7E27177D1E002F3530 /* SliderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +229,14 @@
 				4A7020142717584C002EFD0F /* StarItem.swift */,
 			);
 			path = FighterDetails;
+			sourceTree = "<group>";
+		};
+		4A70201627175F9F002EFD0F /* FilterFighters */ = {
+			isa = PBXGroup;
+			children = (
+				4A70201727175FB3002EFD0F /* FilterFighters.swift */,
+			);
+			path = FilterFighters;
 			sourceTree = "<group>";
 		};
 		4A7ADC9A2714FE3300610A53 = {
@@ -243,6 +262,7 @@
 		4A7ADCA52714FE3300610A53 /* SmashFighters */ = {
 			isa = PBXGroup;
 			children = (
+				4A70201627175F9F002EFD0F /* FilterFighters */,
 				4A6E571827169093005B324F /* FighterDetails */,
 				4A6E570C27167412005B324F /* Views */,
 				4A6E5707271670CB005B324F /* Repository */,
@@ -435,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A64FB7D27177672002F3530 /* RadioButton.swift in Sources */,
 				4A6E5709271670E2005B324F /* UniverseRepository.swift in Sources */,
 				4A6E56FE27165F42005B324F /* HomeViewModel.swift in Sources */,
 				4A6E571A271690A8005B324F /* FighterDetails.swift in Sources */,
@@ -444,6 +465,8 @@
 				4A6E570B271670F1005B324F /* FighterRepository.swift in Sources */,
 				4A94257227160374001E4111 /* SMSTitleIntroduction.swift in Sources */,
 				4ACBF9962717523C00AD5254 /* PriceView.swift in Sources */,
+				4A64FB7B2717761B002F3530 /* RadioButtonGroup.swift in Sources */,
+				4A64FB7F27177D1E002F3530 /* SliderView.swift in Sources */,
 				4A6E56FA27164A02005B324F /* DecodableLoader.swift in Sources */,
 				4ACBF998271753CD00AD5254 /* StarsView.swift in Sources */,
 				4A6E5704271670AA005B324F /* Fighter.swift in Sources */,
@@ -465,6 +488,7 @@
 				4A281C4A2715150D00F46641 /* Color.swift in Sources */,
 				4A6E57142716801F005B324F /* GridView.swift in Sources */,
 				4A6E56F127162508005B324F /* TabBarItem.swift in Sources */,
+				4A70201827175FB3002EFD0F /* FilterFighters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,7 +657,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -663,7 +687,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

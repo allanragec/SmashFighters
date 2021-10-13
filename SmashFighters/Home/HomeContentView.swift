@@ -13,8 +13,7 @@ struct HomeContentView: View {
     }
     
     @ObservedObject var viewModel = HomeViewModel()
-    
-    @State private var selection: String? = nil
+    @State private var showingFilter = false
     
     var body: some View {
         NavigationView {
@@ -26,13 +25,17 @@ struct HomeContentView: View {
                         .padding(.leading, 47)
                     
                     Spacer()
+                    
                     Button(action: {
-                        print("Tapped")
+                        self.showingFilter.toggle()
                     }, label: {
                         Image("filter")
                             .frame(width: 21, height: 14)
                             .foregroundColor(Color.black)
                     })
+                        .sheet(isPresented: $showingFilter) {
+                            FilterFighters()
+                        }
                 }
                 .padding(.trailing, 26)
                 

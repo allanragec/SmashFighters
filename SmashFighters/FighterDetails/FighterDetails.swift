@@ -55,6 +55,7 @@ struct FighterDetails: View {
                             .padding(.bottom, 7)
                         StarsView(stars: fighter.rate)
                             .padding(.bottom, 27)
+                            .allowsHitTesting(false)
                         PriceView(title: "$\(fighter.price)")
                             .padding(.bottom, 76)
                     }
