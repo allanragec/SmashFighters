@@ -19,8 +19,23 @@ struct HomeContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Fighters")
-                    .font(.custom("HelveticaNeue-Regular", size: 24))
+                HStack(alignment: .center) {
+                    Spacer()
+                    Text("Fighters")
+                        .font(.custom("HelveticaNeue-Regular", size: 24))
+                        .padding(.leading, 47)
+                    
+                    Spacer()
+                    Button(action: {
+                        print("Tapped")
+                    }, label: {
+                        Image("filter")
+                            .frame(width: 21, height: 14)
+                            .foregroundColor(Color.black)
+                    })
+                }
+                .padding(.trailing, 26)
+                
                 if viewModel.isLoadingUniverses {
                     LoadingView()
                 }
