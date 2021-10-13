@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct HomeContentView: View {
+    struct Contants {
+        static var fighters = "Fighters"
+    }
+    
     @ObservedObject var viewModel = HomeViewModel()
     
     var body: some View {
@@ -24,6 +28,10 @@ struct HomeContentView: View {
                     LoadingView()
                 }
                 else {
+                    HomeDivider(
+                        title: Contants.fighters,
+                        count: viewModel.fighters.count
+                    )
                     
                     GridView(collection: viewModel.fighters) {
                         FighterItemView(fighter: $0)
