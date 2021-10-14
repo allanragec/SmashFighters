@@ -31,7 +31,7 @@ struct HomeContentView: View {
                     }, label: {
                         Image("filter")
                             .frame(width: 21, height: 14)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(viewModel.isFiltered ? Color.branding: Color.black)
                     })
                         .sheet(isPresented: $showingFilter) {
                             FilterFighters() { filter in

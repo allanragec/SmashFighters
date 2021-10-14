@@ -23,6 +23,10 @@ class HomeViewModel: ObservableObject {
         [Contants.All] + universes.map { $0.name }
     }
     
+    var isFiltered: Bool {
+        filteredFighters != nil
+    }
+    
     @Published var selectedItem: String = Contants.All
     private var subscriptions = Set<AnyCancellable>()
     
