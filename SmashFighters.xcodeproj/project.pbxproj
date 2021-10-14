@@ -47,6 +47,14 @@
 		4A94257E271607F1001E4111 /* UserDefaultPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94257D271607F1001E4111 /* UserDefaultPropertyWrapper.swift */; };
 		4ACBF9962717523C00AD5254 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBF9952717523C00AD5254 /* PriceView.swift */; };
 		4ACBF998271753CD00AD5254 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACBF997271753CD00AD5254 /* StarsView.swift */; };
+		4AF755A82718B58900975DB9 /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755A62718B58900975DB9 /* DataBase.xcdatamodeld */; };
+		4AF755C72718BA2600975DB9 /* UniverseCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755C32718BA2600975DB9 /* UniverseCoreDataModel+CoreDataClass.swift */; };
+		4AF755C82718BA2600975DB9 /* UniverseCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755C42718BA2600975DB9 /* UniverseCoreDataModel+CoreDataProperties.swift */; };
+		4AF755C92718BA2600975DB9 /* FighterCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755C52718BA2600975DB9 /* FighterCoreDataModel+CoreDataClass.swift */; };
+		4AF755CA2718BA2600975DB9 /* FighterCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755C62718BA2600975DB9 /* FighterCoreDataModel+CoreDataProperties.swift */; };
+		4AF755CC2718CA6E00975DB9 /* UniverseCoreDataModel+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755CB2718CA6E00975DB9 /* UniverseCoreDataModel+Array.swift */; };
+		4AF755CE2718CDC000975DB9 /* FighterCoreDataModel+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755CD2718CDC000975DB9 /* FighterCoreDataModel+Array.swift */; };
+		4AF755D02718D80900975DB9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755CF2718D80900975DB9 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +119,14 @@
 		4A94257D271607F1001E4111 /* UserDefaultPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultPropertyWrapper.swift; sourceTree = "<group>"; };
 		4ACBF9952717523C00AD5254 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		4ACBF997271753CD00AD5254 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
+		4AF755A72718B58900975DB9 /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
+		4AF755C32718BA2600975DB9 /* UniverseCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UniverseCoreDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4AF755C42718BA2600975DB9 /* UniverseCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UniverseCoreDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4AF755C52718BA2600975DB9 /* FighterCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FighterCoreDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4AF755C62718BA2600975DB9 /* FighterCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FighterCoreDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4AF755CB2718CA6E00975DB9 /* UniverseCoreDataModel+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UniverseCoreDataModel+Array.swift"; sourceTree = "<group>"; };
+		4AF755CD2718CDC000975DB9 /* FighterCoreDataModel+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FighterCoreDataModel+Array.swift"; sourceTree = "<group>"; };
+		4AF755CF2718D80900975DB9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +170,8 @@
 				4A94257A271604F9001E4111 /* UserDefaults.swift */,
 				4A281C492715150D00F46641 /* Color.swift */,
 				4A6E56FF271660DB005B324F /* String.swift */,
+				4AF755CB2718CA6E00975DB9 /* UniverseCoreDataModel+Array.swift */,
+				4AF755CD2718CDC000975DB9 /* FighterCoreDataModel+Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -242,6 +260,7 @@
 		4A7ADC9A2714FE3300610A53 = {
 			isa = PBXGroup;
 			children = (
+				4AF755A92718B84000975DB9 /* CoreData */,
 				4A7ADCA52714FE3300610A53 /* SmashFighters */,
 				4A7ADCB62714FE3500610A53 /* SmashFightersTests */,
 				4A7ADCC02714FE3500610A53 /* SmashFightersUITests */,
@@ -322,6 +341,27 @@
 				4A94257D271607F1001E4111 /* UserDefaultPropertyWrapper.swift */,
 			);
 			path = PropertyWrappers;
+			sourceTree = "<group>";
+		};
+		4AF755A92718B84000975DB9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4AF755AA2718B84C00975DB9 /* Models */,
+				4AF755A62718B58900975DB9 /* DataBase.xcdatamodeld */,
+				4AF755CF2718D80900975DB9 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		4AF755AA2718B84C00975DB9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4AF755C32718BA2600975DB9 /* UniverseCoreDataModel+CoreDataClass.swift */,
+				4AF755C42718BA2600975DB9 /* UniverseCoreDataModel+CoreDataProperties.swift */,
+				4AF755C52718BA2600975DB9 /* FighterCoreDataModel+CoreDataClass.swift */,
+				4AF755C62718BA2600975DB9 /* FighterCoreDataModel+CoreDataProperties.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF755CE2718CDC000975DB9 /* FighterCoreDataModel+Array.swift in Sources */,
 				4A64FB7D27177672002F3530 /* RadioButton.swift in Sources */,
 				4A6E5709271670E2005B324F /* UniverseRepository.swift in Sources */,
 				4A6E56FE27165F42005B324F /* HomeViewModel.swift in Sources */,
@@ -464,7 +505,9 @@
 				4A6E56F8271649F2005B324F /* ImageLoader.swift in Sources */,
 				4A6E570B271670F1005B324F /* FighterRepository.swift in Sources */,
 				4A94257227160374001E4111 /* SMSTitleIntroduction.swift in Sources */,
+				4AF755D02718D80900975DB9 /* CoreDataManager.swift in Sources */,
 				4ACBF9962717523C00AD5254 /* PriceView.swift in Sources */,
+				4AF755CA2718BA2600975DB9 /* FighterCoreDataModel+CoreDataProperties.swift in Sources */,
 				4A64FB7B2717761B002F3530 /* RadioButtonGroup.swift in Sources */,
 				4A64FB7F27177D1E002F3530 /* SliderView.swift in Sources */,
 				4A6E56FA27164A02005B324F /* DecodableLoader.swift in Sources */,
@@ -472,10 +515,13 @@
 				4A6E5704271670AA005B324F /* Fighter.swift in Sources */,
 				4A7ADCA92714FE3300610A53 /* HomeContentView.swift in Sources */,
 				4A94257E271607F1001E4111 /* UserDefaultPropertyWrapper.swift in Sources */,
+				4AF755A82718B58900975DB9 /* DataBase.xcdatamodeld in Sources */,
+				4AF755CC2718CA6E00975DB9 /* UniverseCoreDataModel+Array.swift in Sources */,
 				4A6E5710271678D0005B324F /* FighterItemView.swift in Sources */,
 				4A6E56F327162BF4005B324F /* TabBar.swift in Sources */,
 				4A7020152717584C002EFD0F /* StarItem.swift in Sources */,
 				4A6E570E2716741E005B324F /* ImageView.swift in Sources */,
+				4AF755C82718BA2600975DB9 /* UniverseCoreDataModel+CoreDataProperties.swift in Sources */,
 				4A7ADCA72714FE3300610A53 /* SmashFightersApp.swift in Sources */,
 				4A9425742716038F001E4111 /* SMSButton.swift in Sources */,
 				4A942576271603A5001E4111 /* IntroductionBackgroundStyle.swift in Sources */,
@@ -487,6 +533,8 @@
 				4A94257B271604F9001E4111 /* UserDefaults.swift in Sources */,
 				4A281C4A2715150D00F46641 /* Color.swift in Sources */,
 				4A6E57142716801F005B324F /* GridView.swift in Sources */,
+				4AF755C92718BA2600975DB9 /* FighterCoreDataModel+CoreDataClass.swift in Sources */,
+				4AF755C72718BA2600975DB9 /* UniverseCoreDataModel+CoreDataClass.swift in Sources */,
 				4A6E56F127162508005B324F /* TabBarItem.swift in Sources */,
 				4A70201827175FB3002EFD0F /* FilterFighters.swift in Sources */,
 			);
@@ -833,6 +881,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4AF755A62718B58900975DB9 /* DataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4AF755A72718B58900975DB9 /* DataBase.xcdatamodel */,
+			);
+			currentVersion = 4AF755A72718B58900975DB9 /* DataBase.xcdatamodel */;
+			path = DataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4A7ADC9B2714FE3300610A53 /* Project object */;
 }
