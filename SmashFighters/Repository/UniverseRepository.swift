@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreData
 
 class UniverseRepository {
     struct Constants {
@@ -19,5 +20,25 @@ class UniverseRepository {
         }
         
         return DecodableLoader<[Universe]>(url: url).load()
+    }
+    
+    class func saveUniverses(_ universes: [Universe]) {
+        let viewContext = CoreDataManager.shared.viewContext
+        loadUniversesFromPersistence().forEach { viewContext.delete($0) }
+        
+        universes.forEach { universe in
+            let universeCoreDataModel = UniverseCoreDataModel(context: viewContext)
+            universeCoreDataModel.id = universe.objectID
+            universeCoreDataModel.name = universe.name
+            universeCoreDataModel.desc = universe.description
+        }
+        
+        try? viewContext.save()
+    }
+    
+    class func loadUniversesFromPersistence() -> [UniverseCoreDataModel] {
+        let viewContext = CoreDataManager.shared.viewContext
+        let fetchRequest = NSFetchRequest<UniverseCoreDataModel>(entityName: "UniverseCoreDataModel")
+        return (try? viewContext.fetch(fetchRequest)) ?? []
     }
 }
