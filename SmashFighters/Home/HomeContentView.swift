@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HomeContentView: View {
-    struct Contants {
+    struct Constants {
         static var fighters = "Fighters"
+        static var filteres = "Filtered"
     }
     
     @ObservedObject var viewModel = HomeViewModel()
@@ -20,7 +21,7 @@ struct HomeContentView: View {
             VStack {
                 HStack(alignment: .center) {
                     Spacer()
-                    Text("Fighters")
+                    Text(Constants.fighters)
                         .font(.custom("HelveticaNeue-Regular", size: 24))
                         .padding(.leading, 47)
                     
@@ -52,8 +53,8 @@ struct HomeContentView: View {
                     }
                     else {
                         HomeDivider(
-                            title: Contants.fighters,
-                            count: viewModel.fighters.count
+                            title: viewModel.isFiltered ? Constants.filteres : Constants.fighters,
+                            count: viewModel.filteredFighters?.count ?? viewModel.fighters.count
                         )
                         
                         GridView(collection: viewModel.filteredFighters ?? viewModel.fighters) { fighter in
