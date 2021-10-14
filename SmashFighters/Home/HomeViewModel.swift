@@ -18,6 +18,7 @@ class HomeViewModel: ObservableObject {
     @Published var filteredFighters: [Fighter]?
     @Published var isLoadingUniverses: Bool = false
     @Published var isLoadingFighters: Bool = false
+    @Published var selectedItem: String = Contants.All
     
     var filterItems: [String] {
         [Contants.All] + universes.map { $0.name }
@@ -26,8 +27,8 @@ class HomeViewModel: ObservableObject {
     var isFiltered: Bool {
         filteredFighters != nil
     }
-    
-    @Published var selectedItem: String = Contants.All
+
+    private var hasFirstFightersSuccessLoad: Bool = false
     private var subscriptions = Set<AnyCancellable>()
     
     init() {
@@ -40,9 +41,11 @@ class HomeViewModel: ObservableObject {
                 if case let .failure(error) = result {
                     self.showError(error)
                 }
+                self.universes = UniverseRepository.loadUniversesFromPersistence().toModels()
                 
                 self.isLoadingUniverses = false
             }, receiveValue: { result in
+                UniverseRepository.saveUniverses(result)
                 self.universes = result
             })
             .store(in: &subscriptions)
@@ -53,26 +56,41 @@ class HomeViewModel: ObservableObject {
                 self.filteredFighters = nil
                 self.isLoadingFighters = true
             })
-            .map { filter -> AnyPublisher<[Fighter], Error> in
-                if filter == Contants.All {
-                    return FighterRepository.getFighters()
-                }
-                
-                return FighterRepository.searchFightersByUniverse(filter)
-            }
+            .map { self.fetchFighters($0) }
             .switchToLatest()
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { result in
-                if case let .failure(error) = result {
-                    self.showError(error)
-                }
-                self.isLoadingFighters = false
-            }, receiveValue: { result in
+            .sink { result in
                 self.fighters = result
                 self.isLoadingFighters = false
-            })
+            }
             .store(in: &subscriptions)
+    }
+    
+    func getFightersLoader() -> AnyPublisher<[Fighter], Error> {
+        if selectedItem == Contants.All {
+            return FighterRepository.getFighters()
+        }
         
+        return FighterRepository.searchFightersByUniverse(selectedItem)
+    }
+    
+    func fetchFighters(_ filter: String) -> AnyPublisher<[Fighter], Never> {
+        getFightersLoader()
+            .handleEvents(receiveOutput: { result in
+                if filter == Contants.All && !self.hasFirstFightersSuccessLoad {
+                    self.hasFirstFightersSuccessLoad = true
+                    FighterRepository.saveFighters(result)
+                }
+            })
+            .catch { _ in
+                Just(
+                    FighterRepository.loadFightersFromPersistence().toModels()
+                        .filter {
+                            (filter == Contants.All) || ($0.universe == filter)
+                        }
+                )
+            }
+            .eraseToAnyPublisher()
     }
     
     func filter(_ filter: FilteredValues) {
