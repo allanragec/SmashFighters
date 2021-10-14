@@ -55,6 +55,7 @@ class HomeViewModel: ObservableObject {
                 self.filteredFighters = nil
                 self.isLoadingFighters = true
             })
+            .subscribe(on: DispatchQueue.global(qos: .background))
             .map { self.fetchFighters($0) }
             .switchToLatest()
             .receive(on: DispatchQueue.main)
