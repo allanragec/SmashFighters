@@ -31,9 +31,9 @@ class FighterRepository {
     }
     
     class func saveFighters(_ fighters: [Fighter]) {
-        let viewContext = CoreDataManager.shared.viewContext
+        let viewContext = CoreDataManager().viewContext
         
-        loadFightersFromPersistence().forEach { viewContext.delete($0) }
+        loadFightersFromCoreData(viewContext).forEach { viewContext.delete($0) }
         
         fighters.forEach { fighter in
             let fighterCoreDataModel = FighterCoreDataModel(context: viewContext)
@@ -51,9 +51,14 @@ class FighterRepository {
         
         try? viewContext.save()
     }
+
+    class func loadFightersFromPersistence() -> [Fighter] {
+        let viewContext = CoreDataManager().viewContext
+        
+        return loadFightersFromCoreData(viewContext).toModels()
+    }
     
-    class func loadFightersFromPersistence() -> [FighterCoreDataModel] {
-        let viewContext = CoreDataManager.shared.viewContext
+    private class func loadFightersFromCoreData(_ viewContext: NSManagedObjectContext) -> [FighterCoreDataModel] {
         let fetchRequest = NSFetchRequest<FighterCoreDataModel>(entityName: "FighterCoreDataModel")
         return (try? viewContext.fetch(fetchRequest)) ?? []
     }

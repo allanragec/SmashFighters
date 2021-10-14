@@ -28,7 +28,6 @@ class HomeViewModel: ObservableObject {
         filteredFighters != nil
     }
 
-    private var hasFirstFightersSuccessLoad: Bool = false
     private var subscriptions = Set<AnyCancellable>()
     
     init() {
@@ -41,7 +40,7 @@ class HomeViewModel: ObservableObject {
                 if case let .failure(error) = result {
                     self.showError(error)
                 }
-                self.universes = UniverseRepository.loadUniversesFromPersistence().toModels()
+                self.universes = UniverseRepository.loadUniversesFromPersistence()
                 
                 self.isLoadingUniverses = false
             }, receiveValue: { result in
@@ -77,14 +76,13 @@ class HomeViewModel: ObservableObject {
     func fetchFighters(_ filter: String) -> AnyPublisher<[Fighter], Never> {
         getFightersLoader()
             .handleEvents(receiveOutput: { result in
-                if filter == Contants.All && !self.hasFirstFightersSuccessLoad {
-                    self.hasFirstFightersSuccessLoad = true
+                if filter == Contants.All {
                     FighterRepository.saveFighters(result)
                 }
             })
             .catch { _ in
                 Just(
-                    FighterRepository.loadFightersFromPersistence().toModels()
+                    FighterRepository.loadFightersFromPersistence()
                         .filter {
                             (filter == Contants.All) || ($0.universe == filter)
                         }

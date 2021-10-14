@@ -23,8 +23,8 @@ class UniverseRepository {
     }
     
     class func saveUniverses(_ universes: [Universe]) {
-        let viewContext = CoreDataManager.shared.viewContext
-        loadUniversesFromPersistence().forEach { viewContext.delete($0) }
+        let viewContext = CoreDataManager().viewContext
+        loadUniversesFromCoreData(viewContext).forEach { viewContext.delete($0) }
         
         universes.forEach { universe in
             let universeCoreDataModel = UniverseCoreDataModel(context: viewContext)
@@ -36,8 +36,13 @@ class UniverseRepository {
         try? viewContext.save()
     }
     
-    class func loadUniversesFromPersistence() -> [UniverseCoreDataModel] {
-        let viewContext = CoreDataManager.shared.viewContext
+    class func loadUniversesFromPersistence() -> [Universe] {
+        let viewContext = CoreDataManager().viewContext
+        
+        return loadUniversesFromCoreData(viewContext).toModels()
+    }
+    
+    private class func loadUniversesFromCoreData(_ viewContext: NSManagedObjectContext) -> [UniverseCoreDataModel] {
         let fetchRequest = NSFetchRequest<UniverseCoreDataModel>(entityName: "UniverseCoreDataModel")
         return (try? viewContext.fetch(fetchRequest)) ?? []
     }

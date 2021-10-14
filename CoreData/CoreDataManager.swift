@@ -8,13 +8,9 @@
 import CoreData
 
 class CoreDataManager {
-    static let shared = CoreDataManager()
-    
     var viewContext: NSManagedObjectContext {
         persistentContainer.viewContext
     }
-    
-    private init() {}
     
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DataBase")
