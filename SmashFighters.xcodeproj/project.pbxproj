@@ -55,6 +55,7 @@
 		4AF755CC2718CA6E00975DB9 /* UniverseCoreDataModel+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755CB2718CA6E00975DB9 /* UniverseCoreDataModel+Array.swift */; };
 		4AF755CE2718CDC000975DB9 /* FighterCoreDataModel+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755CD2718CDC000975DB9 /* FighterCoreDataModel+Array.swift */; };
 		4AF755D02718D80900975DB9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755CF2718D80900975DB9 /* CoreDataManager.swift */; };
+		4AF755D227191D7600975DB9 /* DecodableAsyncLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF755D127191D7600975DB9 /* DecodableAsyncLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		4AF755CB2718CA6E00975DB9 /* UniverseCoreDataModel+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UniverseCoreDataModel+Array.swift"; sourceTree = "<group>"; };
 		4AF755CD2718CDC000975DB9 /* FighterCoreDataModel+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FighterCoreDataModel+Array.swift"; sourceTree = "<group>"; };
 		4AF755CF2718D80900975DB9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		4AF755D127191D7600975DB9 /* DecodableAsyncLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableAsyncLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				4A6E56F5271649D4005B324F /* DataLoader.swift */,
 				4A6E56F7271649F2005B324F /* ImageLoader.swift */,
 				4A6E56F927164A02005B324F /* DecodableLoader.swift */,
+				4AF755D127191D7600975DB9 /* DecodableAsyncLoader.swift */,
 			);
 			path = DataLoaders;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				4A6E5700271660DB005B324F /* String.swift in Sources */,
 				4A942578271603BF001E4111 /* IntroductionView.swift in Sources */,
 				4A6E56F6271649D4005B324F /* DataLoader.swift in Sources */,
+				4AF755D227191D7600975DB9 /* DecodableAsyncLoader.swift in Sources */,
 				4A94257B271604F9001E4111 /* UserDefaults.swift in Sources */,
 				4A281C4A2715150D00F46641 /* Color.swift in Sources */,
 				4A6E57142716801F005B324F /* GridView.swift in Sources */,
