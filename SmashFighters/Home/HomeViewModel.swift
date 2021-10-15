@@ -107,23 +107,12 @@ class HomeViewModel: ObservableObject {
         
         if let filter = filteredValues {
             filteredFighters = self.fighters
-                .filter { fighter in
-                    let fighterPrice = Double(fighter.price) ?? 0
-                    return (fighter.rate == filter.stars) &&
-                    (fighterPrice >= filter.priceSlider.lowHandle.currentValue) &&
-                    (fighterPrice <= filter.priceSlider.highHandle.currentValue)
-                }.sorted { fighter1, fighter2 in
-                    switch filter.sortOption {
-                    case .rate:
-                        return fighter1.rate > fighter2.rate
-                    case .ascending:
-                        return fighter1.name < fighter2.name
-                    case .descending:
-                        return fighter1.name > fighter2.name
-                    case .downloads:
-                        return fighter1.downloads > fighter1.downloads
-                    }
-                }
+                .filter(
+                    rate: filter.stars,
+                    sortOption: filter.sortOption,
+                    minimumPrice: filter.priceSlider.lowHandle.currentValue,
+                    maximumPrice: filter.priceSlider.highHandle.currentValue
+                )
         }
     }
     
@@ -132,7 +121,7 @@ class HomeViewModel: ObservableObject {
         self.filteredValues = nil
     }
     
-    func filter(_ filter: FilteredValues) {
+    func updateFilter(_ filter: FilteredValues) {
         self.filteredValues = filter
         updateFighters(fighters)
     }

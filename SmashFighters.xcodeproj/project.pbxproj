@@ -37,6 +37,7 @@
 		4A7ADCB82714FE3500610A53 /* SmashFightersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7ADCB72714FE3500610A53 /* SmashFightersTests.swift */; };
 		4A7ADCC22714FE3500610A53 /* SmashFightersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7ADCC12714FE3500610A53 /* SmashFightersUITests.swift */; };
 		4A7ADCC42714FE3500610A53 /* SmashFightersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7ADCC32714FE3500610A53 /* SmashFightersUITestsLaunchTests.swift */; };
+		4A7B5BD727193C30007D25E0 /* Fighter+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B5BD627193C30007D25E0 /* Fighter+Array.swift */; };
 		4A7F5B452715043E00866CB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7F5B442715043E00866CB7 /* LaunchScreen.storyboard */; };
 		4A94257227160374001E4111 /* SMSTitleIntroduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94257127160374001E4111 /* SMSTitleIntroduction.swift */; };
 		4A9425742716038F001E4111 /* SMSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9425732716038F001E4111 /* SMSButton.swift */; };
@@ -109,6 +110,7 @@
 		4A7ADCBD2714FE3500610A53 /* SmashFightersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmashFightersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7ADCC12714FE3500610A53 /* SmashFightersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashFightersUITests.swift; sourceTree = "<group>"; };
 		4A7ADCC32714FE3500610A53 /* SmashFightersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashFightersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4A7B5BD627193C30007D25E0 /* Fighter+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fighter+Array.swift"; sourceTree = "<group>"; };
 		4A7F5B432715009500866CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4A7F5B442715043E00866CB7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A94257127160374001E4111 /* SMSTitleIntroduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSTitleIntroduction.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				4A6E56FF271660DB005B324F /* String.swift */,
 				4AF755CB2718CA6E00975DB9 /* UniverseCoreDataModel+Array.swift */,
 				4AF755CD2718CDC000975DB9 /* FighterCoreDataModel+Array.swift */,
+				4A7B5BD627193C30007D25E0 /* Fighter+Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				4A281C452715069A00F46641 /* IntroductionScreen.swift in Sources */,
 				4A6E571227167DC4005B324F /* LoadingView.swift in Sources */,
 				4A6E5700271660DB005B324F /* String.swift in Sources */,
+				4A7B5BD727193C30007D25E0 /* Fighter+Array.swift in Sources */,
 				4A942578271603BF001E4111 /* IntroductionView.swift in Sources */,
 				4A6E56F6271649D4005B324F /* DataLoader.swift in Sources */,
 				4AF755D227191D7600975DB9 /* DecodableAsyncLoader.swift in Sources */,
@@ -765,7 +769,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -789,7 +793,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

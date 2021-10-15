@@ -37,7 +37,7 @@ struct HomeContentView: View {
                         .sheet(isPresented: $showingFilter) {
                             FilterFighters(
                                 filteredValues: viewModel.filteredValues,
-                                didFilter: { viewModel.filter($0) }) {
+                                didFilter: { viewModel.updateFilter($0) }) {
                                     viewModel.clearFilters()
                                 }
                         }
