@@ -10,7 +10,27 @@ import SwiftUI
 struct FilterFighters: View {
     @Environment(\.dismiss) var dismiss
     
+    var filteredValues: FilteredValues?
     var didFilter: (FilteredValues) -> Void
+    var didReset: () -> Void
+    
+    init(filteredValues: FilteredValues?, didFilter: @escaping (FilteredValues) -> Void, didReset: @escaping () -> Void) {
+        self.filteredValues = filteredValues
+        self.didFilter = didFilter
+        self.didReset = didReset
+        
+        if let filteredValues = filteredValues {
+            _selectedSortOption = State(initialValue: filteredValues.sortOption)
+            _stars = State(initialValue: filteredValues.stars)
+            self.slider = filteredValues.priceSlider
+            
+        }
+        else {
+            _selectedSortOption = State(initialValue: FilteredValues.SortOptions.ascending)
+            _stars = State(initialValue: 5)
+            self.slider = CustomSlider(start: 1, end: 1000)
+        }
+    }
     
     var header: some View {
         VStack {
@@ -34,7 +54,7 @@ struct FilterFighters: View {
         }
     }
     
-    @ObservedObject var slider = CustomSlider(start: 1, end: 1000)
+    @ObservedObject var slider: CustomSlider
     
     var sortView: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -110,8 +130,8 @@ struct FilterFighters: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
     
-    @State var selectedSortOption: FilteredValues.SortOptions = FilteredValues.SortOptions.ascending
-    @State var stars: Int = 5
+    @State var selectedSortOption: FilteredValues.SortOptions
+    @State var stars: Int
     
     var body: some View {
         VStack {
@@ -125,8 +145,7 @@ struct FilterFighters: View {
                 let filteredValues = FilteredValues(
                     sortOption: selectedSortOption,
                     stars: stars,
-                    minimumPrice: slider.lowHandle.currentValue,
-                    maximumPrice: slider.highHandle.currentValue
+                    priceSlider: slider
                 )
                 didFilter(filteredValues)
                 dismiss()
@@ -142,14 +161,35 @@ struct FilterFighters: View {
             }
             .frame(maxWidth: .infinity, alignment: .center)
             .padding([.leading, .trailing], 35)
-            .padding(.bottom, 73)
+            
+            if filteredValues != nil {
+                Button(action: {
+                    didReset()
+                    dismiss()
+                }) {
+                    Text("Reset Filters")
+                        .font(.custom("HelveticaNeue-Regular", size: 15))
+                        .multilineTextAlignment(.center)
+                        .frame(height: 39)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundColor(Color.white)
+                        .background(Color.branding)
+                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding([.leading, .trailing], 35)
+                .padding(.bottom, 73)
+            }
+            else {
+                Spacer(minLength: 73)
+            }
         }
     }
 }
 
 struct FilterFighters_Previews: PreviewProvider {
     static var previews: some View {
-        FilterFighters() { _ in }
+        FilterFighters(filteredValues: nil, didFilter: { _ in }) {}
     }
 }
 
@@ -163,6 +203,5 @@ struct FilteredValues {
     
     let sortOption: SortOptions
     let stars: Int
-    let minimumPrice: Double
-    let maximumPrice: Double
+    let priceSlider: CustomSlider
 }

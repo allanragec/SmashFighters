@@ -35,9 +35,11 @@ struct HomeContentView: View {
                             .foregroundColor(viewModel.isFiltered ? Color.branding: Color.black)
                     })
                         .sheet(isPresented: $showingFilter) {
-                            FilterFighters() { filter in
-                                viewModel.filter(filter)
-                            }
+                            FilterFighters(
+                                filteredValues: viewModel.filteredValues,
+                                didFilter: { viewModel.filter($0) }) {
+                                    viewModel.clearFilters()
+                                }
                         }
                 }
                 .padding(.trailing, 26)

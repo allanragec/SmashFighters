@@ -29,7 +29,7 @@ class HomeViewModel: ObservableObject {
     }
 
     private var subscriptions = Set<AnyCancellable>()
-    private var filteredValues: FilteredValues?
+    var filteredValues: FilteredValues?
     
     init() {
         UniverseRepository.getUniverses()
@@ -53,8 +53,6 @@ class HomeViewModel: ObservableObject {
         $selectedItem
             .debounce(for: .milliseconds(200), scheduler: DispatchQueue.main)
             .handleEvents(receiveOutput: { _ in
-                self.filteredFighters = nil
-                self.filteredValues = nil
                 self.isLoadingFighters = true
             })
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -112,8 +110,8 @@ class HomeViewModel: ObservableObject {
                 .filter { fighter in
                     let fighterPrice = Double(fighter.price) ?? 0
                     return (fighter.rate == filter.stars) &&
-                    (fighterPrice >= filter.minimumPrice ) &&
-                    (fighterPrice <= filter.maximumPrice)
+                    (fighterPrice >= filter.priceSlider.lowHandle.currentValue) &&
+                    (fighterPrice <= filter.priceSlider.highHandle.currentValue)
                 }.sorted { fighter1, fighter2 in
                     switch filter.sortOption {
                     case .rate:
@@ -127,6 +125,11 @@ class HomeViewModel: ObservableObject {
                     }
                 }
         }
+    }
+    
+    func clearFilters() {
+        self.filteredFighters = nil
+        self.filteredValues = nil
     }
     
     func filter(_ filter: FilteredValues) {
