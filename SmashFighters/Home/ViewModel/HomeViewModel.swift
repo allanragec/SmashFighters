@@ -9,25 +9,17 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-    struct Contants {
-        static let All = "All"
-    }
-    
     @Published var universes: [Universe] = []
     @Published var fighters: [Fighter] = []
     @Published var filteredFighters: [Fighter]?
     @Published var isLoadingUniverses: Bool = false
     @Published var isLoadingFighters: Bool = false
-    @Published var selectedItem: String = Contants.All
+    @Published var selectedItem: String = Constants.All
     
     var filterItems: [String] {
-        [Contants.All] + universes.map { $0.name }
+        [Constants.All] + universes.map { $0.name }
     }
     
-    var isFiltered: Bool {
-        filteredFighters != nil
-    }
-
     private var subscriptions = Set<AnyCancellable>()
     var filteredValues: FilteredValues?
     
@@ -67,7 +59,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func getFightersLoader(_ filter: String) -> AnyPublisher<[Fighter], Error> {
-        if filter == Contants.All {
+        if filter == Constants.All {
             return FighterRepository.getFighters()
         }
         
@@ -77,7 +69,7 @@ class HomeViewModel: ObservableObject {
     func fetchFighters(_ filter: String) -> AnyPublisher<[Fighter], Never> {
         getFightersLoader(filter)
             .handleEvents(receiveOutput: { result in
-                if filter == Contants.All {
+                if filter == Constants.All {
                     FighterRepository.saveFighters(result)
                 }
             })
@@ -102,7 +94,7 @@ class HomeViewModel: ObservableObject {
     func updateFighters(_ fighters: [Fighter]) {
         self.fighters = fighters
             .filter {
-                (self.selectedItem == Contants.All) || ($0.universe.contains(self.selectedItem))
+                (self.selectedItem == Constants.All) || ($0.universe.contains(self.selectedItem))
             }
         
         if let filter = filteredValues {

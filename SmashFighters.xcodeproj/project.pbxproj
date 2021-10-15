@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1D534D2719EE110053C6A5 /* HomeViewModel+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D534C2719EE110053C6A5 /* HomeViewModel+Presentation.swift */; };
 		4A281C452715069A00F46641 /* IntroductionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A281C442715069A00F46641 /* IntroductionScreen.swift */; };
 		4A281C4A2715150D00F46641 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A281C492715150D00F46641 /* Color.swift */; };
 		4A64FB7B2717761B002F3530 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A64FB7A2717761B002F3530 /* RadioButtonGroup.swift */; };
@@ -77,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A1D534C2719EE110053C6A5 /* HomeViewModel+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewModel+Presentation.swift"; sourceTree = "<group>"; };
 		4A281C442715069A00F46641 /* IntroductionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionScreen.swift; sourceTree = "<group>"; };
 		4A281C492715150D00F46641 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4A64FB7A2717761B002F3530 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
@@ -158,6 +160,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A1D534B2719EDF50053C6A5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4A6E56FD27165F42005B324F /* HomeViewModel.swift */,
+				4A1D534C2719EE110053C6A5 /* HomeViewModel+Presentation.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4A281C3F271505E400F46641 /* Introduction */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,9 +195,9 @@
 		4A6E56EE271624DF005B324F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4A1D534B2719EDF50053C6A5 /* ViewModel */,
 				4A6E56EF271624EE005B324F /* Components */,
 				4A7ADCA82714FE3300610A53 /* HomeContentView.swift */,
-				4A6E56FD27165F42005B324F /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -528,6 +539,7 @@
 				4AF755A82718B58900975DB9 /* DataBase.xcdatamodeld in Sources */,
 				4AF755CC2718CA6E00975DB9 /* UniverseCoreDataModel+Array.swift in Sources */,
 				4A6E5710271678D0005B324F /* FighterItemView.swift in Sources */,
+				4A1D534D2719EE110053C6A5 /* HomeViewModel+Presentation.swift in Sources */,
 				4A6E56F327162BF4005B324F /* TabBar.swift in Sources */,
 				4A7020152717584C002EFD0F /* StarItem.swift in Sources */,
 				4A6E570E2716741E005B324F /* ImageView.swift in Sources */,

@@ -8,11 +8,6 @@
 import SwiftUI
 
 struct HomeContentView: View {
-    struct Constants {
-        static var fighters = "Fighters"
-        static var filteres = "Filtered"
-    }
-    
     @ObservedObject var viewModel = HomeViewModel()
     @State private var showingFilter = false
     
@@ -21,7 +16,7 @@ struct HomeContentView: View {
             VStack {
                 HStack(alignment: .center) {
                     Spacer()
-                    Text(Constants.fighters)
+                    Text(viewModel.title)
                         .font(.custom("HelveticaNeue-Regular", size: 24))
                         .padding(.leading, 47)
                     
@@ -32,7 +27,7 @@ struct HomeContentView: View {
                     }, label: {
                         Image("filter")
                             .frame(width: 21, height: 14)
-                            .foregroundColor(viewModel.isFiltered ? Color.branding: Color.black)
+                            .foregroundColor(viewModel.filterIconColor)
                     })
                         .sheet(isPresented: $showingFilter) {
                             FilterFighters(
@@ -55,12 +50,12 @@ struct HomeContentView: View {
                     }
                     else {
                         HomeDivider(
-                            title: viewModel.isFiltered ? Constants.filteres : Constants.fighters,
-                            count: viewModel.filteredFighters?.count ?? viewModel.fighters.count
+                            title: viewModel.homeDividerTitle,
+                            count: viewModel.fightersCount
                         )
                         
                         List {
-                            GridView(collection: viewModel.filteredFighters ?? viewModel.fighters) { fighter in
+                            GridView(collection: viewModel.fightersList) { fighter in
                                 NavigationLink(destination: FighterDetails(fighter: fighter)) {
                                     FighterItemView(fighter: fighter)
                                 }
