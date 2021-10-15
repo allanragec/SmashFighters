@@ -6,24 +6,24 @@
 //
 
 import SwiftUI
-import Combine
+import SDWebImageSwiftUI
 
 struct ImageView: View {
-    @ObservedObject var imageLoader: ImageLoader
+    private let url: URL?
+    
+    @State var isAnimating: Bool = true
     
     init(withURL url: String) {
-        imageLoader = ImageLoader(urlString: url)
+        self.url = URL(string: url)
     }
     
     var body: some View {
         Group {
-            if let image = imageLoader.image {
-                Image(uiImage: image)
-                    .resizable()
-            }
-            else {
-                LoadingView()
-            }
+            WebImage(url: self.url, isAnimating: $isAnimating) // Animation Control, supports dynamic changes
+               .customLoopCount(1)
+               .playbackRate(2.0)
+               .playbackMode(.bounce)
+               .resizable()
         }.aspectRatio(contentMode: .fit)
     }
 }
