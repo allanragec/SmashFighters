@@ -29,6 +29,7 @@ class HomeViewModel: ObservableObject {
     }
 
     private var subscriptions = Set<AnyCancellable>()
+    private var filteredValues: FilteredValues?
     
     init() {
         UniverseRepository.getUniverses()
@@ -53,6 +54,7 @@ class HomeViewModel: ObservableObject {
             .debounce(for: .milliseconds(200), scheduler: DispatchQueue.main)
             .handleEvents(receiveOutput: { _ in
                 self.filteredFighters = nil
+                self.filteredValues = nil
                 self.isLoadingFighters = true
             })
             .subscribe(on: DispatchQueue.global(qos: .background))
@@ -60,56 +62,76 @@ class HomeViewModel: ObservableObject {
             .switchToLatest()
             .receive(on: DispatchQueue.main)
             .sink { result in
-                self.fighters = result
+                self.updateFighters(result)
                 self.isLoadingFighters = false
             }
             .store(in: &subscriptions)
     }
     
-    func getFightersLoader() -> AnyPublisher<[Fighter], Error> {
-        if selectedItem == Contants.All {
+    func getFightersLoader(_ filter: String) -> AnyPublisher<[Fighter], Error> {
+        if filter == Contants.All {
             return FighterRepository.getFighters()
         }
         
-        return FighterRepository.searchFightersByUniverse(selectedItem)
+        return FighterRepository.searchFightersByUniverse(filter)
     }
     
     func fetchFighters(_ filter: String) -> AnyPublisher<[Fighter], Never> {
-        getFightersLoader()
+        getFightersLoader(filter)
             .handleEvents(receiveOutput: { result in
                 if filter == Contants.All {
                     FighterRepository.saveFighters(result)
                 }
             })
             .catch { _ in
-                Just(
-                    FighterRepository.loadFightersFromPersistence()
-                        .filter {
-                            (filter == Contants.All) || ($0.universe == filter)
-                        }
-                )
+                Just(FighterRepository.loadFightersFromPersistence())
             }
             .eraseToAnyPublisher()
     }
     
-    func filter(_ filter: FilteredValues) {
-        filteredFighters = fighters.filter { fighter in
-            let fighterPrice = Double(fighter.price) ?? 0
-            return (fighter.rate == filter.stars) &&
-            (fighterPrice >= filter.minimumPrice ) &&
-            (fighterPrice <= filter.maximumPrice)
-        }.sorted { fighter1, fighter2 in
-            switch filter.sortOption {
-            case .rate:
-                return fighter1.rate > fighter2.rate
-            case .ascending:
-                return fighter1.name < fighter2.name
-            case .descending:
-                return fighter1.name > fighter2.name
-            case .downloads:
-                return fighter1.downloads > fighter1.downloads
+    func pullToRefresh() async {
+        do {
+            let fighters = try await FighterRepository.getFightersAsync()
+            DispatchQueue.main.async {
+                self.updateFighters(fighters)
             }
         }
+        catch let error {
+            showError(error)
+        }
+    }
+
+    func updateFighters(_ fighters: [Fighter]) {
+        self.fighters = fighters
+            .filter {
+                (self.selectedItem == Contants.All) || ($0.universe.contains(self.selectedItem))
+            }
+        
+        if let filter = filteredValues {
+            filteredFighters = self.fighters
+                .filter { fighter in
+                    let fighterPrice = Double(fighter.price) ?? 0
+                    return (fighter.rate == filter.stars) &&
+                    (fighterPrice >= filter.minimumPrice ) &&
+                    (fighterPrice <= filter.maximumPrice)
+                }.sorted { fighter1, fighter2 in
+                    switch filter.sortOption {
+                    case .rate:
+                        return fighter1.rate > fighter2.rate
+                    case .ascending:
+                        return fighter1.name < fighter2.name
+                    case .descending:
+                        return fighter1.name > fighter2.name
+                    case .downloads:
+                        return fighter1.downloads > fighter1.downloads
+                    }
+                }
+        }
+    }
+    
+    func filter(_ filter: FilteredValues) {
+        self.filteredValues = filter
+        updateFighters(fighters)
     }
     
     private func showError(_ error: Error) {

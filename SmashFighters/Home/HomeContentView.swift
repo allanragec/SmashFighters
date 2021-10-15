@@ -57,12 +57,23 @@ struct HomeContentView: View {
                             count: viewModel.filteredFighters?.count ?? viewModel.fighters.count
                         )
                         
-                        GridView(collection: viewModel.filteredFighters ?? viewModel.fighters) { fighter in
-                            NavigationLink(destination: FighterDetails(fighter: fighter)) {
-                                FighterItemView(fighter: fighter)
+                        List {
+                            GridView(collection: viewModel.filteredFighters ?? viewModel.fighters) { fighter in
+                                NavigationLink(destination: FighterDetails(fighter: fighter)) {
+                                    FighterItemView(fighter: fighter)
+                                }
+                                .buttonStyle(.plain)
                             }
-                            .buttonStyle(.plain)
                         }
+                        .listStyle(.grouped)
+                        .onAppear(perform: {
+                            UITableView.appearance().backgroundColor = UIColor.clear
+                            UITableView.appearance().separatorColor = UIColor.clear
+                        })
+                        .refreshable {
+                            await viewModel.pullToRefresh()
+                        }
+                        .padding(.top, -10)
                     }
                 }
                 Spacer()

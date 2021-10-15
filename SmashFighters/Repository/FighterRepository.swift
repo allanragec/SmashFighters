@@ -22,6 +22,14 @@ class FighterRepository {
         return DecodableLoader<[Fighter]>(url: url).load()
     }
     
+    class func getFightersAsync() async throws -> [Fighter] {
+        guard let url = URL(string: Constants.url) else {
+            return []
+        }
+        
+        return try await DecodableAsyncLoader<[Fighter]>(url: url).load()
+    }
+    
     class func searchFightersByUniverse(_ universe: String) -> AnyPublisher<[Fighter], Error> {
         guard let url = URL(string: "\(Constants.url)?universe=\(universe)".normalizedURL) else {
             return Empty().eraseToAnyPublisher()
